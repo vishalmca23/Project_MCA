@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOC-MED-CO | Order</title>
+  <link href="../header.css" rel="stylesheet" type="text/css" />
+  <link href="../sidenav.css" rel="stylesheet" type="text/css" />
+  <link href="../tables.css" rel="stylesheet" type="text/css" />
+</head>
+
+<header>
+  <div class='main'>
+    <%- include('../../partials/patient/header') %>
+  </div>
+</header>
+
+<script src="../setCredentials.js"></script>
+
+<body>
+  <%- include('../../partials/patient/sidenav') -%>
+
+  <div class='main'>
+    <h1><center><i>Doctor Medical Collaboration</i></center></h1>
+    <br>
+    <h2>Create Order</h2>
+    <%= message %>
+    <br>
+    <% if (!details.suppliers) { %>
+    <form action="/patient/order-medicine" method="post">
+      <table>
+        <tr>
+          <td>Medicine</td>
+          <td><input type="text" name="medicineName" required="required">
+          </td>
+        </tr>
+        <tr>
+          <td>Quantity</td>
+          <td><input type="number" name="quantity" required="required"></td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit">Make order</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <% } else { %>
+    <table>
+      <form action="/patient/order-medicine" method="post">
+        <tr>
+          <td>Medicine</td>
+          <td><input type="text" name="medicineName" required="required" value="<%= details.medicine.medicineName %>">
+          </td>
+        </tr>
+        <tr>
+          <td>Quantity</td>
+          <td><input type="number" name="quantity" required="required" value="<%= details.medicine.quantity %>"></td>
+        </tr>
+        <tr>
+          <td>Supplier</td>
+          <td>
+            <input type="hidden" name="supplierId" id="supplierId" required="required">
+            <input type="text" id="supplierName" required="required" readonly placeholder="Select from below table">
+          </td>
+        </tr>
+        <br>
+        <tr>
+          <td>
+            <button type="submit">Make order</button>
+          </td>
+        </tr>
+      </form>
+    </table>
+    <h2>Suppliers List</h2>
+    <table>
+      <th>Name</th>
+      <th>Company Name</th>
+      <th>Mobile Number</th>
+      <th>Select</th>
+      <% details.suppliers.forEach(supplier => { %>
+      <tr>
+        <td><%= supplier.name %></td>
+        <td><%= supplier.companyName %></td>
+        <td><%= supplier.mobileNumber %></td>
+        <td><input type="button" onclick="setSupplier(`<%= supplier.id %>`, `<%= supplier.name %>`)" value="Select">
+        </td>
+      </tr>
+      <% }); %>
+      <% } %>
+    </table>
+  </div>
+</body>
+
+</html>

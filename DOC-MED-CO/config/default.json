@@ -1,0 +1,39 @@
+{
+  "templatePaths": {
+    "user": {
+      "homepage": "pages/user/home.ejs",
+      "login": "pages/user/login.ejs",
+      "register": "pages/user/register.ejs"
+    },
+    "patient": {
+      "dashboard": "pages/patient/dashboard.ejs",
+      "appointmentRequest": "pages/patient/appointmentRequest.ejs",
+      "details": "pages/patient/details.ejs",
+      "appointment": "pages/patient/appointment.ejs",
+      "makeOrder": "pages/patient/makeOrder.ejs",
+      "supplierInformation": "pages/patient/supplierInformation.ejs",
+      "doctorInformation": "pages/patient/doctorInformation.ejs",
+      "orders": "pages/patient/orders"
+    },
+    "doctor": {
+      "dashboard": "pages/doctor/dashboard.ejs",
+      "details": "pages/doctor/details.ejs",
+      "appointmentRequest": "pages/doctor/appointmentRequest.ejs",
+      "appointment": "pages/doctor/appointment.ejs",
+      "patientInformation": "pages/doctor/patientInformation.ejs",
+      "doctorInformation": "pages/doctor/doctorInformation.ejs"
+    },
+    "admin": {
+      "dashboard": "pages/admin/dashboard.ejs",
+      "doctorRequest": "pages/admin/doctorRequest.ejs",
+      "supplierRequest": "pages/admin/supplierRequest.ejs",
+      "addMedicine": "pages/admin/addMedicine.ejs"
+    },
+    "supplier": {
+      "dashboard": "pages/supplier/dashboard.ejs",
+      "details": "pages/supplier/details.ejs",
+      "orders": "pages/supplier/orders.ejs",
+      "patientInformation": "pages/supplier/patientInformation.ejs"
+    }
+  }
+}

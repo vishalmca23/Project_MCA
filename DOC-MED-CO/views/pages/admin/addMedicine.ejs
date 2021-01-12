@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOC-MED-CO | Add Medicine</title>
+  <link href="../header.css" rel="stylesheet" type="text/css" />
+  <link href="../sidenav.css" rel="stylesheet" type="text/css" />
+  <link href="../tables.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../validations/addMedicine.js"></script>
+</head>
+
+<header>
+  <div class='main'>
+    <%- include('../../partials/admin/header') %>
+  </div>
+</header>
+
+<body>
+  <%- include('../../partials/admin/sidenav') -%>
+
+  <div class="main">
+    <h1><center><i>Doctor Medical Collaboration</i></center></h1>
+    <br>
+    <h2>Add Medicines to Store</h2>
+    <form action="/admin/medicine" method="post" id="addMedicine">
+      <table>
+        <tr>
+          <td>
+            Name
+          </td>
+          <td>
+            <input type="text" name="medicineName" id="medicineName" required="required"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Manufacturing Date
+          </td>
+          <td>
+            <input type="datetime" name="manufacturingDate" id="manufacturingDate" required="required"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Expiry Date
+          </td>
+          <td>
+            <input type="datetime" name="expiryDate" id="expiryDate" required="required"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Price per Tablet
+          </td>
+          <td>
+            <input type="number" name="pricePerTablet" id="price" required="required"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Quantity
+          </td>
+          <td>
+            <input type="number" name="quantity" id="quantity" required="required"><br>
+          </td>
+        </tr>
+        <br>
+      </table>
+      <button type="submit">Add</button>
+    </form>
+    <% if (message) { %>
+    <%= message %>
+    <% } %>
+  </div>
+</body>
+
+</html>

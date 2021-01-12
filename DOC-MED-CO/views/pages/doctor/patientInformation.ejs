@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOC-MED-CO | Patient Details</title>
+  <link href="../../../header.css" rel="stylesheet" type="text/css" />
+  <link href="../../../sidenav.css" rel="stylesheet" type="text/css" />
+  <link href="../../../tables.css" rel="stylesheet" type="text/css" />
+</head>
+
+<header>
+  <div class='main'>
+    <%- include('../../partials/doctor/header') %>
+  </div>
+</header>
+
+<body>
+  <%- include('../../partials/doctor/approvedSidenav') -%>
+
+  <div class='main'>
+    <h1><center><i>Doctor Medical Collaboration</i></center></h1>
+    <br>
+    <h2>Patient Information</h2>
+    <br>
+    <%= message %>
+    <% if (details) { %>
+    <table>
+      <tr>
+        <td> Name </td>
+        <td> <%= details.patient.name %></td>
+      </tr>
+      <tr>
+        <td> Date of Birth </td>
+        <td> <%= details.patient.dateOfBirth %> </td>
+      </tr>
+      <tr>
+        <td> Gender </td>
+        <td> <%= details.patient.gender %> </td>
+      </tr>
+    </table>
+    <br>
+    <% if (details.patientInformation.length) { %>
+    <table >
+      <th>Doctor</th>
+      <th>Date</th>
+      <th>Subject</th>
+      <th>Description</th>
+      <th>Disease</th>
+      <th>Doctor Remark</th>
+      <th>Status</th>
+      <% details.patientInformation.forEach(appointment => { %>
+      <tr>
+        <td><a href="/doctor/information/<%= appointment.doctorId%>">View details</a></td>
+        <td> <%= appointment.date %> </td>
+        <td> <%= appointment.subject %> </td>
+        <td> <%= appointment.description %> </td>
+        <% if (appointment.PatientHistory) { %>
+        <td> <%= appointment.PatientHistory.disease %> </td>
+        <td> <%= appointment.PatientHistory.remark %> </td>
+        <% } else { %>
+        <td></td>
+        <td></td>
+        <% } %>
+        <td><%= appointment.status %></td>
+      </tr>
+      <% }); %>
+    </table>
+    <% } %>
+    <% } %>
+  </div>
+</body>
+
+</html>

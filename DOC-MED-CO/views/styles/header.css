@@ -1,0 +1,22 @@
+/* Style the navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #3931af;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.topnav a:hover {
+  background-color: #3931af;
+  color: white;
+}

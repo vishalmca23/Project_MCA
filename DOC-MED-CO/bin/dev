@@ -1,0 +1,3 @@
+require('regenerator-runtime');
+require("@babel/register");
+require('../src/app');

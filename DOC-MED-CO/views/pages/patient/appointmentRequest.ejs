@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOC-MED-CO | Appointment Request</title>
+  <link href="../header.css" rel="stylesheet" type="text/css" />
+  <link href="../sidenav.css" rel="stylesheet" type="text/css" />
+  <link href="../tables.css" rel="stylesheet" type="text/css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+  <script src="../validations/appointmentRequest.js"></script>
+  <script src="../setCredentials.js"></script>
+</head>
+
+<header>
+  <div class='main'>
+    <%- include('../../partials/patient/header') %>
+  </div>
+</header>
+
+<body>
+  <%- include('../../partials/patient/sidenav') -%>
+
+  <div class='main'>
+    <h1><center><i>Doctor Medical Collaboration</i></center></h1>
+    <br>
+    <h2>Request for today's Appointment</h2>
+    <br>
+    <%= message %>
+    <% if(!message && details.length) { %>
+    <form action="/patient/appointment-request" method="post" id="appointmentRequest">
+      <table>
+        <tr>
+          <td>
+            Doctor
+          </td>
+          <td>
+            <input type="hidden" name="doctorId" id="doctorId">
+            <input type="text" id="doctorName" name="doctorName" required="required" placeholder="Select from below table" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Subject
+          </td>
+          <td>
+            <input type="text" name="subject" id="subject" required="required">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Description
+          </td>
+          <td>
+            <input type="text" name="description">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Time
+          </td>
+          <td>
+            <input type="number" name="time" id="time">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit">Send Request</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <h2>Doctors List</h2>
+    <table>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Specialization</th>
+      <th>Experience from</th>
+      <th>Appointment Fee</th>
+      <th>Mobile Number</th>
+      <th>Select</th>
+      <% details.forEach(doctor => { %>
+      <tr>
+        <td><%= doctor.name %></td>
+        <td><%= doctor.gender %></td>
+        <td><%= doctor.startTime %></td>
+        <td><%= doctor.endTime %></td>
+        <td><%= doctor.specialization.name %></td>
+        <td><%= doctor.experienceFrom %></td>
+        <td><%= doctor.appointmentFee %></td>
+        <td><%= doctor.mobileNumber %></td>
+        <td><button onclick="setDoctor(`<%= doctor.id %>`, `<%= doctor.name %>`)">Click</button></td>
+      </tr>
+      <% }) %>
+      <% } %>
+  </div>
+</body>
+
+</html>

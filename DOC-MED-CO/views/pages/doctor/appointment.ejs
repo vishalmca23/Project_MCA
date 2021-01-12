@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOC-MED-CO | Appointment List</title>
+  <link href="../header.css" rel="stylesheet" type="text/css" />
+  <link href="../sidenav.css" rel="stylesheet" type="text/css" />
+  <link href="../tables.css" rel="stylesheet" type="text/css" />
+</head>
+
+<header>
+  <div class='main'>
+    <%- include('../../partials/doctor/header') %>
+  </div>
+</header>
+
+<script src="../setCredentials.js"></script>
+
+<body>
+  <%- include('../../partials/doctor/approvedSidenav') -%>
+
+  <div class='main'>
+    <h1><center><i>Doctor Medical Collaboration</i></center></h1>
+    <%= message %>
+    <% if(details && details.length) { %>
+    <br>
+    <h2>My Appointments</h2>
+    <br>
+    <h2>Upload Patient Report</h2>
+    <form action="/doctor/appointment/patient-report" method="post">
+      <table>
+        <tr>
+          <td>Appointment</td>
+          <td><input type="hidden" name="appointmentId" id="appointmentId" readonly="readonly" required
+              placeholder="Select patient">
+            <label id="appointment">Not Selected</label></td>
+        </tr>
+        <tr>
+          <td>Disease</td>
+          <td><input type="text" name="disease" required></td>
+        </tr>
+        <tr>
+          <td>Remark</td>
+          <td><input type="text" name="remark"></td>
+        </tr>
+      </table>
+      <td><button type="submit">Send</button></td>
+    </form>
+    <br>
+    <h2>Today's Appointments</h2>
+    <br>
+    <br>
+    <table>
+      <th>Patient Information</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Subject</th>
+      <th>Description</th>
+      <th>Select</th>
+      <% details.forEach(appointment => { %>
+      <tr>
+        <td>
+          <a href="/doctor/appointment/patient-information/<%= appointment.patientId%>">View</a>
+        </td>
+        <td><%= appointment.date %></td>
+        <td><%= appointment.time %></td>
+        <td><%= appointment.subject %></td>
+        <td><%= appointment.description %></td>
+        <td>
+          <input type="button" value="Select" onclick="setAppointment(`<%= appointment.id%>`)">
+        </td>
+      </tr>
+      <% }); %>
+      <% } %>
+    </table>
+  </div>
+</body>
+
+</html>

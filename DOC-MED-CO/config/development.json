@@ -1,0 +1,15 @@
+{
+  "database": {
+    "username": "postgres",
+    "password": "root",
+    "name": "clinical-automation-system",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "server": {
+    "port": 3000,
+    "cookieTime": 6000000,
+    "cookieSecret": "this-is-a-secret-key"
+  }
+}

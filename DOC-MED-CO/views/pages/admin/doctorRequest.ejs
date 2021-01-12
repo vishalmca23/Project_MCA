@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOC-MED-CO | Doctor Requests</title>
+  <link href="../header.css" rel="stylesheet" type="text/css" />
+  <link href="../sidenav.css" rel="stylesheet" type="text/css" />
+  <link href="../tables.css" rel="stylesheet" type="text/css" />
+</head>
+
+<header>
+  <div class='main'>
+    <%- include('../../partials/admin/header') %>
+  </div>
+</header>
+
+<body>
+  <%- include('../../partials/admin/sidenav') %>
+
+  <div class="main">
+    <h1><center><i>Doctor Medical Collaboration</i></center></h1>
+    <br>
+    <% if (message) {%>
+      <%= message %>
+    <% } %>
+    <% if (details) { %>
+    <% if(details.length) { %>
+    <h2>Doctors List</h2>
+    <table>
+      <th>Name</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>Degree</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Experience from</th>
+      <th>Appointment Fee</th>
+      <th>Mobile Number</th>
+      <th>Email</th>
+      <th>Approve</th>
+      <th>Reject</th>
+      <th>Submit</th>
+      <% details.forEach(doctor => { %>
+      <form action="/admin/doctor-request" method="post">
+        <tr>
+          <td><%= doctor.name %></td>
+          <td><%= doctor.dateOfBirth %></td>
+          <td><%= doctor.gender %></td>
+          <td><%= doctor.degree %></td>
+          <td><%= doctor.startTime %></td>
+          <td><%= doctor.endTime %></td>
+          <td><%= doctor.experienceFrom %></td>
+          <td><%= doctor.appointmentFee %></td>
+          <td><%= doctor.mobileNumber %></td>
+          <td><input type="text" name="doctorEmail" readonly="readonly" value=<%= doctor.email %>></td>
+          <td><input type="radio" name="status" value="approved"></td>
+          <td><input type="radio" name="status" value="rejected"></td>
+          <td><button type="submit">Send Response</button></td>
+        </tr>
+      </form>
+      <% }) %>
+      <% } else { %>
+      No pending requests
+      <% } %>
+      <% } %>
+    </table>
+  </div>
+</body>
+
+</html>

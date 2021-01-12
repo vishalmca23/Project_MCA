@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Doc-Med-Co</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active">Home</a>
+                    <a href="#" class="nav-item nav-link">About</a>
+                    <a href="#" class="nav-item nav-link">Contact Us</a>
+                    <a href="#" class="nav-item nav-link">Career</a>
+
+                </div>
+                <form class="form-inline ml-auto">
+                    <input type="text" class="form-control mr-sm-2" placeholder="Search">
+                    <button type="submit" class="btn btn-outline-light">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+<div class="register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <h3>Welcome</h3>
+                        <a class="btn btn-secondary" href="/login" role="button">Click Here To Login</a>  
+
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" 
+                                role="tab" aria-controls="home" aria-selected="true">Doctor</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                 role="tab" aria-controls="profile" aria-selected="false">Patient</a>
+                            </li>
+                        </ul>
+
+                                 <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                
+                        <% if (message) { %>
+                            <%= message %>
+                            <% } %>
+                                <h3 class="register-heading">I am a Doctor</h3>
+                                <form action="/register" method="POST">
+                                <div class="row register-form"> 
+                                    <div class="col-md-6">
+                                        <div class="form-group" hidden>
+                                            <input type="text" class="form-control" name="profession" value="doctor" checked />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name *" name="username" value="" required />
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="date" class="form-control" placeholder="DOB" name="dateOfBirth" id="dateOfBirth" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Degree *" name="degree" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Year of Experience *" name="experienceFrom" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Appointment Fee *" name="appointmentFee" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" name="email" id="email" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Specialization *" name="specialization" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span>Male</span>
+                                                  </label>
+                                                  <label class="radio-inline">
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female</span>
+                                                  </label>
+                                                  <label class="radio-inline">
+                                                    <input type="radio" name="gender" value="other">
+                                                    <span>Other</span>
+                                                  </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10"
+                                            class="form-control" placeholder="Mobile No *" name="mobileNumber" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="time" class="form-control" placeholder="Start Time *" name="startTime" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="time" class="form-control" placeholder="End Time *" name="endTime" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Registration Number *" name="registrationNumber" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Year Of Registration *" name="yearOfRegistration" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="State Medical Council *" name="stateMedicalCouncil" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" name="password" id="password" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" required/>
+                                        </div>
+
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">I am a Patient</h3>
+                                <form action="/register" method="POST">
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group" hidden>
+                                            <input type="text" class="form-control" name="profession" value="patient" checked />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name *" name="username" id="username" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="date" class="form-control" placeholder="Date of Birth" name="dateOfBirth" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Address *" name="address" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text"
+                                            class="form-control" placeholder="Mobile No *" name="mobileNumber" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span>Male</span>
+                                                  </label>
+                                                  <label class="radio-inline">
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female</span>
+                                                  </label>
+                                                  <label class="radio-inline">
+                                                    <input type="radio" name="gender" value="other">
+                                                    <span>Other</span>
+                                                  </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" name="email" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" name="password" value="" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" required/>
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+</body>
+</html>
