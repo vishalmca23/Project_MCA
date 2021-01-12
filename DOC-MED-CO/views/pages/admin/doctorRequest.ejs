@@ -38,6 +38,9 @@
       <th>Experience from</th>
       <th>Appointment Fee</th>
       <th>Mobile Number</th>
+      <th>Registration Number</th>
+      <th>Year of Registration</th>
+      <th>State Medical Council</th>
       <th>Email</th>
       <th>Approve</th>
       <th>Reject</th>
@@ -54,6 +57,9 @@
           <td><%= doctor.experienceFrom %></td>
           <td><%= doctor.appointmentFee %></td>
           <td><%= doctor.mobileNumber %></td>
+          <td><%= doctor.registrationNumber %></td>
+          <td><%= doctor.yearOfRegistration %></td>
+          <td><%= doctor.stateMedicalCouncil %></td>
           <td><input type="text" name="doctorEmail" readonly="readonly" value=<%= doctor.email %>></td>
           <td><input type="radio" name="status" value="approved"></td>
           <td><input type="radio" name="status" value="rejected"></td>

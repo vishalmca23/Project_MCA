@@ -16,17 +16,9 @@ export default class Appointment {
     try {
       if (req.body.doctorId && req.body.subject && !isNaN(req.body.time)) {
         const doctor = await DoctorService.findById(req.body.doctorId);
-        if (Number(req.body.time) >= Number(doctor.startTime)
-          && Number(req.body.time) <= Number(doctor.endTime)) {
+       
           return next();
-        }
-        return renderPageWithMessage(
-          req,
-          res,
-          403,
-          templatePaths.patient.appointmentRequest,
-          'Select appropriate time'
-        );
+      
       }
       return renderPageWithMessage(
         req,
