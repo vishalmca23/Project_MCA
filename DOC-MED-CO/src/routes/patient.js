@@ -21,6 +21,9 @@ router.post('/appointment-request',
   Appointment.checkData,
   Appointment.checkDoctorAvailability,
   Patient.makeAppointmentRequest);
+  
+
+
 
 // Route to get all appointments
 router.get('/appointment', Patient.sendAppointmentList);

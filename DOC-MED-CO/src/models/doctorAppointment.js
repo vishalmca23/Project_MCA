@@ -41,7 +41,7 @@ export default (sequelize, DataTypes) => {
       }
     },
     time: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: false,
       validate: {
         notEmpty: true

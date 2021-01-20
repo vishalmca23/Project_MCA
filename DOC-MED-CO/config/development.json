@@ -2,7 +2,7 @@
   "database": {
     "username": "postgres",
     "password": "root",
-    "name": "doc_med_co",
+    "name": "clinical-automation-system",
     "host": "localhost",
     "dialect": "postgres",
     "logging": false

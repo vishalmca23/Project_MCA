@@ -32,7 +32,8 @@ export default class AppointmentService {
         status: 'confirmed'
       }
     })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err.message);
         throw new Error('No confirmed Appointment');
       });
   }

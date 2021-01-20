@@ -63,6 +63,9 @@ export default class Patient {
     appointment.patientId = req.user.id;
     appointment.date = moment().format('l');
     appointment.status = 'pending';
+      // console.log(appointment.patientId);
+      // console.log("hello")
+
 
     try {
       await AppointmentService.create(appointment);

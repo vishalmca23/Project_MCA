@@ -14,7 +14,7 @@ export default class Appointment {
    */
   static async checkData(req, res, next) {
     try {
-      if (req.body.doctorId && req.body.subject && !isNaN(req.body.time)) {
+      if (req.body.doctorId) {
         const doctor = await DoctorService.findById(req.body.doctorId);
        
           return next();

@@ -1,5 +1,6 @@
 import { hashSync, compareSync } from 'bcryptjs';
 import { v4 } from 'uuid';
+import sendRejectionMail from '../helpers/mailer';
 import db from '../models';
 
 const { Doctor, Specialization } = db;
@@ -140,6 +141,7 @@ export default class DoctorService {
    * @param {String} email
    */
   static delete(email) {
+    sendRejectionMail(email).catch(console.error);
     return Doctor.destroy({
       where: { email }
     })
